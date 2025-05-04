@@ -113,19 +113,6 @@ class syntax_plugin_bpmnio_bpmnio extends SyntaxPlugin
     {
         [$state, $type, $match, $posStart, $posEnd, $inline] = $data;
 
-        if (is_a($renderer, 'renderer_plugin_dw2pdf')) {
-            if ($state == DOKU_LEXER_EXIT) {
-                $renderer->doc .= <<<HTML
-                    <div class="plugin-bpmnio">
-                        <a href="https://github.com/Color-Of-Code/dokuwiki-plugin-bpmnio/issues/4">
-                            DW2PDF support missing: Help wanted
-                        </a>
-                    </div>
-                    HTML;
-            }
-            return true;
-        }
-
         if ($mode == 'xhtml' || $mode == 'odt') {
             switch ($state) {
                 case DOKU_LEXER_ENTER:
